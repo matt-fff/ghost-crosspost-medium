@@ -2,6 +2,6 @@
 
 [run]
 omit =
-        venv/*
-        virtualenv/*
+        */venv*
+        */virtualenv*
         */usr/local/lib*
