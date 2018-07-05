@@ -13,11 +13,11 @@ lint:  ## Run PyLint
 
 code-coverage: ## Run coverage.py
 	$(call msg,"Running coverage.py")
-	coverage run src/medium_crosspost.py && coverage report -m
+	py.test --cov=src src/
 
 travis-coverage: ## Run coverage.py formatted for build
 	$(call msg,"Running coverage.py formatted for build")
-	coverage run src/medium_crosspost.py && coverage xml && cat coverage.xml
+	py.test --cov-report xml --cov=src src/ && cat coverage.xml
 
 create-venv: ## Create a virtualenv for this project
 	$(call msg,"Creating a virtualenv for this project")
