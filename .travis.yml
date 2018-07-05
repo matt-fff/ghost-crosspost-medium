@@ -10,4 +10,4 @@ script:
   - make lint
   - make travis-coverage
 after_script:
-  - ./cc-test-reporter after-build --exit-code 0
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
