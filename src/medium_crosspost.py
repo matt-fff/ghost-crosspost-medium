@@ -84,8 +84,8 @@ class MediumCrosspost(object):
         return response.json()
 
 
-# For Zapier
+# pylint: disable=invalid-name,undefined-variable
+# Zapier has its own way to populate input_data
 if "input_data" in locals():
-    # pylint: disable=undefined-variable,invalid-name
     crosspost = MediumCrosspost(input_data)
     output = crosspost.post()

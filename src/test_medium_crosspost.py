@@ -1,6 +1,6 @@
 from unittest import TestCase
 import mock
-from medium_crosspost import MediumCrosspost
+from src.medium_crosspost import MediumCrosspost
 
 
 class TestMediumCrosspost(TestCase):
@@ -20,9 +20,7 @@ class TestMediumCrosspost(TestCase):
         u"tags": [u"python", u"testing", u"tag-stubs"],
     }
 
-    expected_headers = {
-        u"Authorization": u"Bearer golly, some token"
-    }
+    expected_headers = {u"Authorization": u"Bearer golly, some token"}
 
     # pylint: disable=protected-access
     def test_init(self):
@@ -82,7 +80,7 @@ class TestMediumCrosspost(TestCase):
         crosspost = MediumCrosspost(self.test_data)
         self.assertDictEqual(self.expected_headers, crosspost.headers)
 
-    @mock.patch("medium_crosspost.requests")
+    @mock.patch("src.medium_crosspost.requests")
     def test_user_id(self, mock_requests):
         expected_user_id = u"asfu9sabd9324g729v8asf867saf82389f92gftest"
 
@@ -159,9 +157,10 @@ class TestMediumCrosspost(TestCase):
         )
 
     @mock.patch(
-        "medium_crosspost.MediumCrosspost.query_data", new_callable=mock.PropertyMock
+        "src.medium_crosspost.MediumCrosspost.query_data",
+        new_callable=mock.PropertyMock,
     )
-    @mock.patch("medium_crosspost.requests")
+    @mock.patch("src.medium_crosspost.requests")
     def test_post(self, mock_requests, mock_query_data):
         expected_user_id = u"asfu9sabd9324g729v8asf867saf82389f92gftest"
         expected_post_id = "239rasdfs8hfb9asdftest"
