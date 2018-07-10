@@ -9,7 +9,12 @@ A Python script to crosspost articles to Medium.
 
 Accompanies [this blog post](https://typenil.com/automatic-ghost-medium-cross-posting/), which goes into depth on crossposting between [Ghost](https://ghost.org/) and [Medium](https://medium.com/).
 
-Basic Usage:
+## Installation:
+ 
+`pip install medium-crosspost`
+
+
+## Basic Usage:
 
 ```
 from medium_crosspost import MediumCrosspost
