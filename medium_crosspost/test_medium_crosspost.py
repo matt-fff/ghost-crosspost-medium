@@ -1,6 +1,6 @@
 from unittest import TestCase
 import mock
-from src.medium_crosspost import MediumCrosspost
+from .medium_crosspost import MediumCrosspost
 
 
 class TestMediumCrosspost(TestCase):
@@ -80,7 +80,7 @@ class TestMediumCrosspost(TestCase):
         crosspost = MediumCrosspost(self.test_data)
         self.assertDictEqual(self.expected_headers, crosspost.headers)
 
-    @mock.patch("src.medium_crosspost.requests")
+    @mock.patch("medium_crosspost.medium_crosspost.requests")
     def test_user_id(self, mock_requests):
         expected_user_id = u"asfu9sabd9324g729v8asf867saf82389f92gftest"
 
@@ -157,13 +157,13 @@ class TestMediumCrosspost(TestCase):
         )
 
     @mock.patch(
-        "src.medium_crosspost.MediumCrosspost.query_data",
+        "medium_crosspost.medium_crosspost.MediumCrosspost.query_data",
         new_callable=mock.PropertyMock,
     )
-    @mock.patch("src.medium_crosspost.requests")
+    @mock.patch("medium_crosspost.medium_crosspost.requests")
     def test_post(self, mock_requests, mock_query_data):
         expected_user_id = u"asfu9sabd9324g729v8asf867saf82389f92gftest"
-        expected_post_id = "239rasdfs8hfb9asdftest"
+        expected_post_id = u"239rasdfs8hfb9asdftest"
 
         # Set up the mocks
         mock_response = mock.MagicMock()
