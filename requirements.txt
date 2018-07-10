@@ -16,13 +16,17 @@ mccabe==0.6.1
 mock==2.0.0
 more-itertools==4.2.0
 pbr==4.0.4
+pkginfo==1.4.2
 pluggy==0.6.0
 py==1.5.4
 pylint==1.9.2
 pytest==3.6.2
 pytest-cov==2.5.1
 requests==2.19.1
+requests-toolbelt==0.8.0
 singledispatch==3.4.0.3
 six==1.11.0
+tqdm==4.23.4
+twine==1.11.0
 urllib3==1.23
 wrapt==1.10.11

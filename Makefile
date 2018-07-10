@@ -25,3 +25,10 @@ create-venv: ## Create a virtualenv for this project
 	virtualenv --python=/usr/bin/python2.7 venv
 	venv/bin/pip install -r requirements.txt
 	echo "$(shell pwd)/$(PACKAGE_PATH)" > venv/lib/python2.7/site-packages/$(PACKAGE_PATH).pth
+
+publish: ## Publish the project to PyPI
+	$(call msg,"Publishing to PyPI")
+	rm dist/*.whl
+	rm dist/*.tar.gz
+	python setup.py sdist bdist_wheel
+	twine upload dist/*

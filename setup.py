@@ -18,6 +18,7 @@ setup(
     packages=[PACKAGE_PATH],
     version=VERSION,
     long_description=README,
+    long_description_content_type="text/markdown",
     description="Easily crosspost articles to Medium",
     author="typenil",
     author_email="code@typenil.com",
