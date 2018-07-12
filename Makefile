@@ -28,7 +28,7 @@ create-venv: ## Create a virtualenv for this project
 
 publish: ## Publish the project to PyPI
 	$(call msg,"Publishing to PyPI")
-	rm dist/*.whl
-	rm dist/*.tar.gz
+	rm dist/*.whl | true
+	rm dist/*.tar.gz | true
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
