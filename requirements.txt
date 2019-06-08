@@ -4,7 +4,7 @@ attrs==19.1.0
 backports.functools-lru-cache==1.5
 certifi==2018.4.16
 chardet==3.0.4
-configparser==3.5.0
+configparser==3.7.4
 coverage==4.5.1
 enum34==1.1.6
 funcsigs==1.0.2
