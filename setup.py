@@ -20,7 +20,7 @@ setup(
     long_description=README,
     long_description_content_type="text/markdown",
     description="Easily crosspost articles to Medium",
-    author="typenil",
+    author="Matt White",
     author_email="code@typenil.com",
     url="https://github.com/typenil/ghost-crosspost-medium",
     license="MIT License",
@@ -34,7 +34,7 @@ setup(
         "Natural Language :: English",
         "Operating System :: OS Independent",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.7",
         "Topic :: Utilities",
     ],
 )

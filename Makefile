@@ -4,29 +4,29 @@ define msg
     @printf "\033[36m# %s\033[0m\n" $(1)
 endef
 
-test:  ## Run tests
+test:
 	$(call msg,"Running tests")
 	py.test $(PACKAGE_PATH)/
 
-lint:  ## Run PyLint
+lint:
 	$(call msg,"Running PyLint")
 	find $(PACKAGE_PATH) -iname "*.py" | xargs pylint
 
-code-coverage: ## Run coverage.py
+code-coverage:
 	$(call msg,"Running coverage.py")
 	py.test --cov=$(PACKAGE_PATH) $(PACKAGE_PATH)/
 
-travis-coverage: ## Run coverage.py formatted for build
+travis-coverage:
 	$(call msg,"Running coverage.py formatted for build")
 	py.test --cov-report xml --cov=$(PACKAGE_PATH) $(PACKAGE_PATH)/ && cat coverage.xml
 
-create-venv: ## Create a virtualenv for this project
+create-venv:
 	$(call msg,"Creating a virtualenv for this project")
-	virtualenv --python=/usr/bin/python2.7 venv
-	venv/bin/pip install -r requirements.txt
-	echo "$(shell pwd)/$(PACKAGE_PATH)" > venv/lib/python2.7/site-packages/$(PACKAGE_PATH).pth
+	virtualenv --python=/usr/bin/python3.7 venv
+	venv/bin/pip3.7 install -r requirements.txt
+	echo "$(shell pwd)/$(PACKAGE_PATH)" > venv/lib/python3.7/site-packages/$(PACKAGE_PATH).pth
 
-publish: ## Publish the project to PyPI
+publish:
 	$(call msg,"Publishing to PyPI")
 	rm dist/*.whl | true
 	rm dist/*.tar.gz | true
