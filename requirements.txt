@@ -20,7 +20,7 @@ pluggy==0.13.1
 py==1.8.1
 pylint==2.3.1
 pytest==5.3.5
-pytest-cov==2.7.1
+pytest-cov==2.8.1
 requests==2.22.0
 requests-toolbelt==0.9.1
 singledispatch==3.4.0.3
