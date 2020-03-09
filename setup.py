@@ -1,4 +1,4 @@
-from os import path
+from os import path, environ
 import re
 import io
 from setuptools import setup
@@ -10,8 +10,14 @@ HERE = path.abspath(path.dirname(__file__))
 with io.open(path.join(HERE, "README.md"), encoding="utf-8") as fp:
     README = fp.read()
 
-with io.open(path.join(HERE, PACKAGE_PATH, "__init__.py"), encoding="utf-8") as fp:
-    VERSION = re.search("__version__ = \"([^\"]+)\"", fp.read()).group(1)
+# Retrieves the last version from the environment
+LAST_PYPI_VERSION = environ["LAST_PYPI_VERSION"]
+
+# Strips out the final number into it's own variable
+PATCH_NUM = re.search('[0-9]+$', LAST_PYPI_VERSION).group(0)
+
+# Increases the patch number and creates the updated version.
+VERSION = f"{LAST_PYPI_VERSION[:-len(PATCH_NUM)]}{int(PATCH_NUM) + 1}"
 
 setup(
     name=PACKAGE_NAME,
